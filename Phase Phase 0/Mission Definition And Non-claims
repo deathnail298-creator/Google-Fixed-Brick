@@ -1,0 +1,42 @@
+# Phase 0 — Mission Definition and Non-Claims
+
+## Mission Definition
+
+The Google Fixed Brick architecture defines a single, indivisible compute unit intended for space-based deployment under strictly bounded operating conditions. The mission is to demonstrate that meaningful computational work can be performed in space using hardware units with fixed power draw, deterministic thermal output, no runtime configurability, and no inter-unit coordination.
+
+The system is explicitly designed around the premise that operational simplicity, predictability, and failure isolation are more valuable in space environments than utilization efficiency, adaptive scheduling, or dynamic optimization. Each compute brick operates as a sealed, self-contained module whose behavior is fully determined at manufacture time and does not change in response to workload, environment, or neighboring units.
+
+The scope of this mission is limited to defining and validating the architectural feasibility of such a compute unit at Phase 0 and Phase 1 levels. The work does not attempt to optimize performance, maximize throughput, or propose a complete space-based computing platform.
+
+## Problem Context
+
+Space-hosted computing systems are traditionally constrained by power availability, thermal rejection, radiation exposure, and the difficulty of servicing or reconfiguring hardware after deployment. Conventional terrestrial computing architectures rely heavily on dynamic power management, shared cooling infrastructure, workload migration, and coordinated failure handling, all of which introduce complexity and fragility when translated to space environments.
+
+The Google Fixed Brick approach addresses this context by removing coordination, adaptivity, and shared infrastructure as design goals. Instead, it treats each compute unit as a fixed heat source with known electrical and thermal behavior, enabling system-level predictability through over-provisioning and isolation rather than active management.
+
+## Non-Claims
+
+This work makes no claim to:
+
+* Provide a complete space computing platform or service
+* Replace terrestrial data centers or cloud computing infrastructure
+* Achieve optimal compute density, utilization, or energy efficiency
+* Support real-time, latency-sensitive, or safety-critical workloads
+* Enable in-orbit servicing, reconfiguration, or repair
+* Define fleet-scale orchestration, scheduling, or load-balancing strategies
+* Address mission-specific software stacks, applications, or user interfaces
+
+No claims are made regarding scalability beyond the level required to reason about multiple independent bricks operating concurrently without coordination. Economic viability, commercial competitiveness, and long-duration operational performance are explicitly out of scope at this phase.
+
+## Phase Boundaries
+
+Phase 0 is limited to architectural definition, constraint articulation, and identification of success criteria sufficient to justify limited physical or analog testing in Phase 1. Any discussion of extended missions, production systems, cost optimization, or operational scaling is intentionally excluded.
+
+The Google Fixed Brick is treated solely as a conceptual and architectural primitive. Any future systems composed of multiple bricks, supporting infrastructure, or complementary subsystems are not defined or implied here.
+
+---
+
+**Plain-English Summary**
+
+This phase defines a single space-based compute unit that operates with fixed power use, fixed heat output, and no ability to adapt or coordinate with other units. The approach favors predictability and isolation over efficiency or flexibility, and it deliberately avoids claiming a full computing platform or operational system. The scope is limited to showing that such a tightly constrained hardware concept is architecturally reasonable to test.
+n connections. Everything else—power generation, cooling systems, coordination, software, and operations—is explicitly outside the brick’s responsibility. The brick is treated as an isolated unit whose success or failure does not depend on external systems behaving correctly.
