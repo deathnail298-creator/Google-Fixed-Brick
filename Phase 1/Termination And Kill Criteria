@@ -1,0 +1,73 @@
+# Phase 1 — Termination and Kill Criteria
+
+## Purpose of Kill Criteria
+
+Phase 1 includes explicit termination conditions intended to prevent continued investment in an architecture that violates its own defining assumptions. These criteria are applied strictly and without mitigation or reinterpretation.
+
+Any single violation of a kill criterion constitutes failure of the Google Fixed Brick architecture at Phase 1.
+
+## KC-1: Power Variability
+
+**Condition:**
+
+* The brick exhibits workload-dependent variation in electrical power draw beyond the defined fixed cap or expected narrow band.
+
+**Rationale:**
+
+* Fixed, invariant power behavior is a core architectural requirement. Any need for adaptive power management invalidates the concept.
+
+## KC-2: Thermal Unpredictability
+
+**Condition:**
+
+* Thermal output does not track electrical power input in a stable and repeatable manner, or requires active intervention to maintain acceptable temperatures.
+
+**Rationale:**
+
+* Predictable thermal behavior is required to eliminate active thermal management and coordination.
+
+## KC-3: Runtime Configurability
+
+**Condition:**
+
+* Any mechanism is identified that allows runtime modification of power draw, performance, operating modes, or thermal behavior.
+
+**Rationale:**
+
+* Runtime configurability contradicts the fixed-behavior premise of the brick.
+
+## KC-4: External Dependency
+
+**Condition:**
+
+* The brick is found to rely on external systems, coordination, shared infrastructure, or instrumentation for normal operation.
+
+**Rationale:**
+
+* The architecture requires isolation and independence to contain failure and simplify system-level reasoning.
+
+## KC-5: Non-Local Failure Propagation
+
+**Condition:**
+
+* Induced or natural failure of the brick causes instability, overload, or cascading effects in external systems.
+
+**Rationale:**
+
+* Failure must remain local and terminal. Any propagation undermines the failure tolerance philosophy.
+
+## Application of Kill Criteria
+
+Kill criteria are evaluated during and immediately after each Phase 1 test module. If a kill criterion is met, Phase 1 is terminated and the architecture is considered invalid at this stage.
+
+No attempt is made to redesign, tune, or compensate for a violated criterion within Phase 1.
+
+## Phase Boundaries
+
+Meeting all kill criteria does not imply readiness for deployment or extended testing. It only establishes that the architecture’s core invariants were not contradicted during Phase 1.
+
+---
+
+**Plain-English Summary**
+
+Phase 1 stops immediately if the compute brick fails to hold fixed power use, predictable heat output, or non-configurable behavior. The project also stops if the brick depends on outside systems or if its failure affects anything else. Passing these criteria only means the basic idea was not disproven during testing.
