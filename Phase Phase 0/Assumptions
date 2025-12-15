@@ -1,0 +1,41 @@
+# Phase 0 — Assumptions
+
+## Environmental Assumptions
+
+The Google Fixed Brick architecture assumes operation in a space environment where direct human intervention is not possible after deployment. Exposure to radiation, vacuum, thermal cycling, and micrometeoroid risk is assumed to be non-negligible and persistent over the operational life of the brick.
+
+The architecture does not assume a specific orbit, mission duration, or environmental severity. Instead, it assumes that environmental conditions are sufficiently harsh that simplicity and predictability are preferred over adaptability or optimization.
+
+## Power Assumptions
+
+It is assumed that the brick is supplied by an external power source capable of continuously delivering the brick’s fixed, worst-case power draw. Transient power availability, power throttling, or variable supply conditions are not accommodated by the brick.
+
+The brick assumes that power delivery, when present, is within design limits. Loss or interruption of power is treated as an external event outside the responsibility of the brick.
+
+## Thermal Assumptions
+
+The architecture assumes the availability of a dedicated passive thermal rejection path sized to continuously dissipate the brick’s full heat output. No shared radiators, active cooling systems, or variable thermal control mechanisms are assumed.
+
+Thermal margins are expected to be provided externally through conservative sizing rather than through adaptive behavior within the brick.
+
+## Operational Assumptions
+
+The brick is assumed to execute non-real-time, batch-oriented workloads that can tolerate interruption, delay, or loss. No guarantees are assumed regarding task completion, execution order, or timing.
+
+The architecture assumes that loss of individual bricks is acceptable at the system level and does not require immediate mitigation or response.
+
+## Integration Assumptions
+
+The brick assumes minimal integration complexity, limited to fixed mechanical mounting, fixed electrical power input, and a single thermal interface. No assumptions are made regarding spacecraft bus architectures, deployment mechanisms, or ground control systems.
+
+Compatibility with specific launch vehicles, spacecraft platforms, or mission profiles is not assumed or required.
+
+## Phase Boundaries
+
+These assumptions are established solely to support Phase 0 architectural definition and scoping. Any assumption that cannot be validated or bounded during Phase 1 testing remains an assumption rather than a claim.
+
+---
+
+**Plain-English Summary**
+
+The design assumes a harsh space environment where hardware cannot be serviced and where power and cooling must be provided in a simple, predictable way. It assumes constant power availability, passive heat rejection, and workloads that can tolerate delay or loss. Anything outside these conditions is treated as external to the brick rather than something the brick adapts to.
