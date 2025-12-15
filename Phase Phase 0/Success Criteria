@@ -1,0 +1,33 @@
+# Phase 0 — Success Criteria
+
+## Architectural Clarity
+
+Phase 0 is considered successful if the Google Fixed Brick is defined as a coherent and internally consistent architectural primitive. The brick’s boundaries, invariants, and exclusions must be sufficiently explicit that independent reviewers can determine what the brick is and is not without relying on implied behavior or unstated assumptions.
+
+The architecture must support clear reasoning about power consumption, thermal behavior, and failure modes using only fixed, design-time information.
+
+## Testability Gate
+
+Phase 0 is successful if the architectural definition enables a bounded Phase 1 prototype and test plan that can be executed using laboratory or analog facilities. Any aspect of the brick that cannot be credibly tested at Phase 1 must be explicitly excluded rather than deferred or hypothesized.
+
+The absence of a test path for a feature is treated as a signal to remove that feature from scope.
+
+## Non-Claims Integrity
+
+Phase 0 success requires that no claims are made regarding performance optimization, scalability, operational lifetime, commercial viability, or mission-level effectiveness. Reviewers must be able to identify all claims made by the architecture and verify that each claim is bounded by assumptions or testability.
+
+Any interpretation of future capability beyond Phase 1 must be attributable to the reader, not to statements made in this repository.
+
+## Reviewer Interpretability
+
+Phase 0 is successful if technical reviewers can assess the architecture without requiring additional clarification, hidden context, or informal explanation. The documentation must stand on its own and support a clear go/no-go decision regarding limited prototyping.
+
+## Phase Boundaries
+
+Meeting these criteria does not imply readiness for deployment, commercialization, or extended missions. Success at Phase 0 only establishes permission to proceed to Phase 1 prototyping and testing under controlled conditions.
+
+---
+
+**Plain-English Summary**
+
+Phase 0 is successful if the compute brick is clearly defined, its limits are obvious, and nothing important is implied without being stated. The design must be specific enough to support simple testing while avoiding claims about performance, scaling, or real missions. Meeting these criteria only means the idea is clear enough to test, not that it is ready to be used.
