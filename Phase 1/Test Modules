@@ -1,0 +1,89 @@
+# Phase 1 — Test Modules
+
+## Test Philosophy
+
+Phase 1 testing is structured as a small set of independent test modules, each designed to validate a specific architectural invariant of the Google Fixed Brick. Tests are intentionally simple, repeatable, and bounded to laboratory or analog conditions.
+
+Each test module is pass/fail oriented. Partial success, tuning, or optimization is not a goal. A test that reveals a violation of a Phase 0 invariant is considered a failure of the architecture at Phase 1.
+
+## TM-1: Fixed Power Verification
+
+**Objective:** Verify that the brick’s electrical power draw remains capped at a fixed value under all tested workloads.
+
+**Method:**
+
+* Apply a range of representative batch workloads with varying internal utilization
+* Measure input electrical power continuously
+* Confirm that power draw does not exceed the defined hardware cap and remains within a narrow expected band
+
+**Success Condition:**
+
+* Input power never exceeds the defined cap
+* No workload-dependent scaling or throttling behavior is observed
+
+## TM-2: Thermal Steady-State Validation
+
+**Objective:** Verify that thermal output tracks electrical power input in a predictable and steady-state manner.
+
+**Method:**
+
+* Operate the brick continuously at fixed power until thermal equilibrium is reached
+* Measure temperature at the thermal interface and radiator surrogate
+* Observe warm-up time, steady-state temperature, and shutdown cool-down behavior
+
+**Success Condition:**
+
+* Thermal behavior is stable and repeatable
+* No transient thermal excursions beyond expected margins are observed
+
+## TM-3: Non-Configurability Confirmation
+
+**Objective:** Confirm that the brick exposes no runtime configuration surfaces or operating modes.
+
+**Method:**
+
+* Inspect hardware and software interfaces for adjustable parameters
+* Attempt to modify power, performance, or thermal behavior through software or control inputs
+
+**Success Condition:**
+
+* No mechanism exists to alter brick behavior after startup
+* Brick behavior remains invariant across runs
+
+## TM-4: Isolation Verification
+
+**Objective:** Verify that the brick operates independently of external systems beyond defined interfaces.
+
+**Method:**
+
+* Operate the brick with only power and thermal connections present
+* Introduce benign changes to external instrumentation without affecting brick operation
+
+**Success Condition:**
+
+* Brick continues normal operation regardless of external instrumentation state
+* No hidden dependencies are identified
+
+## TM-5: Failure Locality Observation
+
+**Objective:** Confirm that failure behavior is local and does not propagate externally.
+
+**Method:**
+
+* Induce controlled fault conditions such as power removal or thermal interface interruption
+* Observe brick response and any external effects
+
+**Success Condition:**
+
+* Failure results in local shutdown or degradation only
+* No external instability or cascading effects occur
+
+## Phase Boundaries
+
+Phase 1 testing does not attempt to quantify performance, lifetime, radiation hardness, or mission suitability. Test modules are limited to validating architectural invariants under controlled conditions.
+
+---
+
+**Plain-English Summary**
+
+Phase 1 testing consists of simple checks to confirm that the compute brick always draws a fixed amount of power, produces predictable heat, and cannot be reconfigured or coordinated with other systems. Each test looks for clear pass or fail outcomes rather than performance improvements. The tests only verify that the basic architectural rules hold when the brick is built and exercised in a lab.
