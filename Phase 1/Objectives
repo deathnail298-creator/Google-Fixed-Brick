@@ -1,0 +1,48 @@
+# Phase 1 — Objectives
+
+## Purpose of Phase 1
+
+Phase 1 exists to validate that the Google Fixed Brick architecture, as defined in Phase 0, can be realized as a bounded physical or analog prototype and that its core invariants hold under controlled test conditions. The goal is not to demonstrate performance, efficiency, or mission readiness, but to confirm architectural feasibility.
+
+Phase 1 testing is intentionally limited to what can be credibly executed in a laboratory or equivalent analog environment. Any objective that would require spaceflight, long-duration exposure, or complex integration is excluded.
+
+## Primary Objectives
+
+Phase 1 is considered successful if the following objectives are met:
+
+* Demonstrate a prototype compute brick with hardware-capped, fixed electrical power draw under all tested workloads
+* Verify that thermal output remains equal to power draw and follows a predictable, steady-state profile
+* Confirm that the brick operates without runtime configuration changes, operating modes, or adaptive behavior
+* Demonstrate electrical, thermal, and functional isolation from external systems beyond defined interfaces
+* Validate that failure of the brick is local and does not induce external instability or cascading effects
+
+## Secondary Objectives
+
+The following secondary objectives may be evaluated if feasible within available facilities, but are not required for Phase 1 success:
+
+* Observation of thermal margin behavior under conservative radiator sizing
+* Basic radiation tolerance screening using component-level or analog methods
+* Characterization of startup, steady-state, and shutdown behavior
+
+Failure to meet secondary objectives does not invalidate Phase 1.
+
+## Explicit Non-Objectives
+
+Phase 1 does not attempt to:
+
+* Measure or optimize computational performance
+* Validate long-term reliability or operational lifetime
+* Demonstrate scalability across multiple bricks
+* Integrate with spacecraft buses or flight-qualified systems
+* Support real-time or safety-critical workloads
+* Establish commercial readiness or cost effectiveness
+
+## Phase 1 Exit Condition
+
+Phase 1 concludes successfully if the primary objectives are met and no test results contradict the fixed-behavior assumptions defined in Phase 0. Any result that demonstrates unavoidable variability, required adaptivity, or dependency on coordination constitutes a Phase 1 failure.
+
+---
+
+**Plain-English Summary**
+
+Phase 1 tests whether a single compute brick can be built to always use the same power, produce predictable heat, and operate without adapting or coordinating with anything else. The testing is limited to simple laboratory conditions and avoids measuring performance or readiness for real missions. Success only means the basic idea holds up when built and tested, not that it is ready for use.
