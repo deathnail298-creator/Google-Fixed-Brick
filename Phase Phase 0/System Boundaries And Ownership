@@ -1,0 +1,48 @@
+# Phase 0 — System Boundaries and Ownership
+
+## System Boundary Definition
+
+The Google Fixed Brick is defined as a single, sealed compute module with fixed electrical power draw, deterministic thermal output, and no runtime configurability. The system boundary includes only the physical compute brick itself and its direct, singular interfaces to external power, mechanical mounting, and thermal rejection.
+
+All behavior of the compute brick is determined at manufacture time. Once deployed, the brick does not alter its power consumption, thermal profile, or computational behavior in response to workload characteristics, environmental variation, or the presence or absence of other compute bricks.
+
+## Explicit Exclusions
+
+The following elements are explicitly outside the system boundary:
+
+* External power generation, distribution, or storage systems
+* Shared or centralized thermal management infrastructure
+* Radiator manifolds, heat-sharing structures, or cross-brick thermal coupling
+* Inter-brick communication, coordination, or signaling mechanisms
+* Workload scheduling, orchestration, or migration systems
+* Fault detection, redundancy management, or system-level recovery logic
+* Software platforms, operating systems, or application-level frameworks
+* Ground-based control systems or operational interfaces
+
+Any behavior or performance attributed to these elements is not claimed, implied, or required by this architecture.
+
+## Ownership and Responsibility
+
+Responsibility for the Google Fixed Brick is limited to the integrity and behavior of the brick as an isolated unit. The brick neither assumes nor requires responsibility for the performance, safety, or correctness of any external systems to which it may be attached.
+
+Failures of external power delivery, thermal rejection capacity, mechanical support, or mission-level coordination are considered outside the scope of the brick and do not constitute failure of the brick architecture itself.
+
+## Interface Assumptions
+
+The brick is assumed to interface with external systems through a minimal set of fixed interfaces:
+
+* A single capped electrical power input sized for worst-case continuous operation
+* A single mechanical mounting interface providing structural support
+* A dedicated thermal path to a passive radiator or equivalent heat rejection surface
+
+No additional interfaces, backchannels, or contingency connections are assumed or permitted.
+
+## Phase Boundaries
+
+At Phase 0, system boundaries are defined for the purpose of architectural clarity and test scoping only. No claims are made regarding integration strategies, compatibility with specific spacecraft platforms, or responsibility allocation beyond the isolated brick.
+
+---
+
+**Plain-English Summary**
+
+The system is limited to a single compute brick with fixed power use and fixed heat output, plus only its basic power, mounting, and heat-rejection connections. Everything else—power generation, cooling systems, coordination, software, and operations—is explicitly outside the brick’s responsibility. The brick is treated as an isolated unit whose success or failure does not depend on external systems behaving correctly.
