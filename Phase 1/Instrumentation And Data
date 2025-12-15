@@ -1,0 +1,76 @@
+# Phase 1 — Instrumentation and Data
+
+## Instrumentation Philosophy
+
+Instrumentation in Phase 1 is limited to what is required to validate the architectural invariants defined in Phase 0 and exercised through the Phase 1 test modules. Instrumentation is not intended to maximize observability or collect exploratory data, but to confirm fixed behavior through minimal, repeatable measurements.
+
+All instrumentation must be external to the brick and must not be required for normal operation. The brick must be capable of operating without any measurement equipment attached.
+
+## Electrical Measurements
+
+Electrical instrumentation is used solely to verify fixed power behavior.
+
+Required measurements include:
+
+* Input voltage at the brick power interface
+* Input current to the brick
+* Calculated input power over time
+
+Measurements should be taken at sufficient temporal resolution to detect transient excursions beyond the defined power cap.
+
+No internal power rail monitoring or component-level instrumentation is required.
+
+## Thermal Measurements
+
+Thermal instrumentation is limited to characterizing heat rejection behavior at the brick’s defined thermal interface.
+
+Required measurements include:
+
+* Temperature at the brick thermal interface
+* Temperature at one or more points on the passive heat rejection element
+
+Thermal measurements are used to identify warm-up behavior, steady-state equilibrium, and cool-down behavior. Absolute temperature accuracy is less important than repeatability and trend stability.
+
+No internal temperature sensing within the brick is required for Phase 1.
+
+## Operational State Observation
+
+Operational state is observed at a coarse level sufficient to confirm invariant behavior.
+
+Permitted observations include:
+
+* Power-on and power-off state
+* Continuous operation under batch workloads
+* Loss of operation under induced fault conditions
+
+No fine-grained performance counters, workload metrics, or internal state telemetry are required or desired.
+
+## Data Handling
+
+Data collected during Phase 1 testing is limited to:
+
+* Time-stamped electrical power measurements
+* Time-stamped thermal measurements
+* Qualitative notes documenting test conditions and observed behavior
+
+Data storage, post-processing, and visualization methods are not constrained, provided that raw measurements are preserved and traceable to specific test runs.
+
+## Explicit Exclusions
+
+Phase 1 data collection explicitly excludes:
+
+* Performance benchmarking data
+* Throughput, latency, or efficiency metrics
+* Reliability or lifetime statistics
+* Radiation tolerance characterization beyond basic screening
+* Any data requiring in-brick instrumentation or modification
+
+## Phase Boundaries
+
+Instrumentation and data defined here are sufficient only to support Phase 1 conclusions regarding architectural feasibility. Any additional data collection must be justified as necessary to validate a stated Phase 1 objective.
+
+---
+
+**Plain-English Summary**
+
+Phase 1 measurements are limited to checking how much power the brick draws and how much heat it produces over time. The brick must work without any sensors attached, and measurements are kept simple and external. No performance or lifetime data is collected, only what is needed to confirm fixed behavior.
