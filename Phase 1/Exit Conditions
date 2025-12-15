@@ -1,0 +1,45 @@
+# Phase 1 — Exit Conditions
+
+## Purpose of Phase 1 Exit Conditions
+
+Phase 1 exit conditions define the minimum criteria required to conclude Phase 1 testing and determine whether the Google Fixed Brick architecture remains viable for further consideration. Exit conditions are binary and are evaluated based on observed test outcomes rather than interpretation or intent.
+
+Meeting Phase 1 exit conditions establishes only that the architecture was not invalidated by limited testing.
+
+## Required Conditions for Exit
+
+Phase 1 is considered complete and successful only if all of the following conditions are met:
+
+* All Phase 1 primary objectives are satisfied
+* No Phase 1 termination or kill criteria are triggered
+* Fixed electrical power behavior is demonstrated across tested workloads
+* Thermal output is stable, repeatable, and consistent with fixed power input
+* No runtime configurability or operating modes are identified
+* Brick operation is independent of external systems beyond defined interfaces
+* Failure behavior is observed to be local and non-propagating
+
+## Documentation Requirements
+
+Phase 1 exit requires the following documentation artifacts:
+
+* Recorded results from each Phase 1 test module
+* Identification of any anomalies observed during testing, even if they do not trigger kill criteria
+* A clear statement confirming whether Phase 1 exit conditions were met
+
+No justification, interpretation, or forward-looking analysis is required beyond stating whether the conditions were satisfied.
+
+## Outcomes of Phase 1
+
+Successful completion of Phase 1 establishes permission to consider additional testing or refinement in subsequent phases. It does not imply readiness for deployment, commercialization, or operational use.
+
+Failure to meet any exit condition concludes the effort at Phase 1.
+
+## Phase Boundaries
+
+Phase 1 exit conditions apply only to the scope and tests defined in this repository. No inference may be drawn regarding behavior under untested conditions or extended missions.
+
+---
+
+**Plain-English Summary**
+
+Phase 1 is complete only if all tests pass and none of the hard stop conditions are triggered. The brick must show fixed power use, predictable heat output, no configurability, and isolated failure behavior. Passing Phase 1 only means the idea survived basic testing, not that it is ready to be used.
