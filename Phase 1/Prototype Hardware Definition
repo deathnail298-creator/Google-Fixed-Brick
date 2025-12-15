@@ -1,0 +1,76 @@
+# Phase 1 — Prototype Hardware Definition
+
+## Prototype Scope
+
+The Phase 1 prototype is a single Google Fixed Brick representative unit intended to validate fixed-power behavior, predictable thermal output, and isolation principles under laboratory conditions. The prototype is not flight hardware and is not required to meet space-qualification standards.
+
+The prototype must not introduce functionality that contradicts Phase 0 invariants, including dynamic power management, runtime configurability, or cross-unit coordination.
+
+## Brick Definition (Phase 1)
+
+The Phase 1 brick consists of:
+
+* A compute payload capable of sustained batch computation
+* A hardware-enforced fixed power cap that limits total brick power draw
+* A minimal power input interface
+* A minimal thermal interface suitable for coupling to a passive heat rejection element used in testing
+* A minimal mechanical mounting arrangement for safe bench operation
+
+No other interfaces are required.
+
+## Fixed Power Enforcement
+
+The prototype must implement power draw as a hard ceiling at the electrical level. Fixed power behavior must not rely on software throttling or workload selection alone.
+
+Acceptable implementations for the Phase 1 prototype include:
+
+* A fixed-current or fixed-power front-end power stage limiting input draw
+* A dedicated power-limiting module that caps total brick consumption
+* A supply architecture that physically cannot exceed a defined maximum draw
+
+The objective is that, across tested workloads, the brick’s input power remains within a narrow band around a fixed setpoint or hard ceiling.
+
+## Compute Payload Requirements
+
+The compute payload must be sufficient to:
+
+* Sustain continuous operation for thermal steady-state testing
+* Run representative batch workloads that vary internal utilization
+* Operate without requiring network services, orchestration, or external control beyond start/stop
+
+No specific processor family, accelerator type, or software stack is required at Phase 1. Selection should favor availability, simplicity, and repeatability.
+
+## Thermal Interface and Test Radiator
+
+The brick must provide a defined thermal coupling surface or mount point to support a passive heat rejection element used during Phase 1 tests. This may be implemented as:
+
+* A conduction plate or heat spreader
+* A fixed thermal strap interface
+* A direct mount to a passive radiator surrogate (e.g., finned heat sink)
+
+Active cooling is excluded. Any use of forced convection in the laboratory must be treated as a test convenience only and must be explicitly documented as not representative of the intended passive rejection mechanism.
+
+## Isolation Requirements
+
+The prototype must be constructed such that:
+
+* Electrical behavior is isolated to the single brick power input
+* Thermal paths are limited to the dedicated thermal interface
+* No dependency exists on other bricks or shared subsystems
+
+Any external test instrumentation must not be required for normal brick operation.
+
+## Prototype Deliverables
+
+Phase 1 prototype deliverables include:
+
+* One representative brick prototype meeting the above constraints
+* A documented fixed power setpoint or cap value used for testing
+* A documented thermal interface description suitable for repeatable mounting
+* A minimal operating procedure covering startup, steady-state operation, and shutdown
+
+---
+
+**Plain-English Summary**
+
+The Phase 1 prototype is a single compute brick that is physically prevented from drawing more than a fixed amount of power. It includes only what is necessary to run steady workloads and measure heat output through a simple passive thermal interface. The prototype avoids flight hardware requirements and excludes features like software-based throttling, coordination, or shared infrastructure.
