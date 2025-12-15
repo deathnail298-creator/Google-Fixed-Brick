@@ -1,0 +1,35 @@
+# Phase 0 — Failure Tolerance Philosophy
+
+## Failure as a Normal Condition
+
+The Google Fixed Brick architecture treats individual hardware failure as an expected and acceptable outcome rather than an exceptional event. The design assumes that, in space environments, some fraction of deployed hardware will degrade, malfunction, or cease operation over time due to radiation exposure, thermal cycling, manufacturing defects, or unanticipated environmental factors.
+
+Rather than attempting to prevent all failures through redundancy, repairability, or adaptive control, the architecture accepts failure and limits its consequences through isolation.
+
+## Localized Failure Containment
+
+Each compute brick is isolated electrically, thermally, and functionally from all other bricks. A failure within one brick does not propagate power surges, thermal overloads, control faults, or workload disruptions to neighboring units.
+
+Failure modes are therefore local and terminal. A brick may experience degraded performance, intermittent operation, hard shutdown, or permanent loss. No recovery, restart, or reassignment behavior is assumed or required.
+
+## No System-Level Recovery
+
+The architecture explicitly excludes system-level fault detection, redundancy management, failover logic, or dynamic reconfiguration. There is no expectation that failed bricks will be replaced, repaired, or compensated for by other bricks.
+
+The loss of compute capacity is handled implicitly by over-provisioning at deployment rather than actively managed during operation.
+
+## Deterministic Failure Behavior
+
+Because the brick operates at fixed power and fixed thermal output, failure behavior is constrained and predictable. A failed brick does not request additional power, increase heat output, or alter the behavior of external systems.
+
+This predictability simplifies system-level reasoning and reduces the risk of cascading failures in tightly constrained environments.
+
+## Phase Boundaries
+
+At Phase 0, failure tolerance is defined conceptually and qualitatively. Quantitative reliability modeling, lifetime prediction, and environmental stress testing are deferred to Phase 1 where limited validation may be possible. No claims are made regarding operational lifetime or failure rates.
+
+---
+
+**Plain-English Summary**
+
+The design assumes that some compute bricks will fail and treats that as normal rather than exceptional. Each brick fails on its own without affecting others, and there is no attempt to repair or recover failed units. The approach relies on isolation and predictability instead of active fault management.
