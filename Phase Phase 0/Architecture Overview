@@ -1,0 +1,37 @@
+# Phase 0 — Architecture Overview
+
+## Architectural Primitive
+
+The Google Fixed Brick is defined as a fixed-behavior compute primitive rather than a configurable system. It is a sealed hardware unit whose electrical power draw, thermal output, and computational behavior are invariant over time. The brick has no operating modes, no boost states, and no configuration surfaces exposed after manufacture.
+
+The brick is treated architecturally as a constant heat source and constant power sink paired with a bounded amount of deterministic compute capability. All variability normally handled through software control, power management, or coordination is intentionally removed and resolved at design time.
+
+## Fixed Power and Thermal Model
+
+Electrical power input to the brick is capped in hardware and cannot be exceeded under any operating condition. All consumed electrical power is converted to heat, yielding a predictable and continuous thermal output equal to the power draw.
+
+Thermal behavior is therefore fully determined by the brick’s fixed power level and its dedicated thermal path to a passive radiator or equivalent heat rejection surface. No active cooling, throttling, or thermal sharing mechanisms are assumed or permitted. The thermal design relies on excess margin and isolation rather than feedback control or optimization.
+
+## Isolation and Non-Coordination
+
+Each Google Fixed Brick operates independently. There are no shared power buses beyond the point of connection, no shared thermal paths, and no communication channels between bricks for coordination, load balancing, or fault handling.
+
+Failure of a single brick does not trigger reconfiguration, redistribution of workloads, or compensatory behavior in other bricks. Loss of a brick is treated as a local and acceptable event that does not propagate through the system.
+
+## Deterministic Behavior
+
+The brick supports only non-real-time, batch-oriented computational workloads whose execution timing is not mission-critical. Workloads are expected to tolerate interruption, delay, or loss without requiring guarantees of completion or response time.
+
+Because the brick does not adapt its behavior, its operational envelope is fully knowable prior to deployment. This enables system-level reasoning based on fixed assumptions rather than dynamic state estimation or control.
+
+## Architectural Implications
+
+The architecture shifts complexity away from runtime management and into upfront constraint selection. Predictability is achieved by over-provisioning thermal rejection and accepting under-utilization of compute capacity rather than attempting to dynamically match resources to demand.
+
+This approach intentionally trades efficiency and flexibility for simplicity, fault containment, and ease of reasoning in environments where intervention is limited or impossible.
+
+---
+
+**Plain-English Summary**
+
+The architecture defines a single compute brick that always uses the same amount of power and produces the same amount of heat, regardless of what it is doing. Each brick operates alone, without coordinating or sharing resources with others, and failures are contained to the individual unit. The design favors predictable behavior and simple reasoning over efficiency or adaptability.
